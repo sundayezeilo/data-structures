@@ -19,7 +19,8 @@ class SinglyLinkedList {
       this.tail!.next = node;
       this.tail = node;
     }
-    return ++this.size;
+    this.size++;
+    return this.size;
   }
 
   pop() {
@@ -42,6 +43,8 @@ class SinglyLinkedList {
     }
     return null;
   }
+
+  insert() {}
 }
 
 export { SinglyLinkedList };

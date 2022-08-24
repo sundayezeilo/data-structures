@@ -2,9 +2,9 @@ class ListNode {
   value: unknown;
   next: ListNode | null;
 
-  constructor(value: unknown, next = null) {
+  constructor(value: unknown) {
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
 
