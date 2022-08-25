@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "test": "jest --watchAll --no-cache --coverage",
+    "test": "jest --no-cache --coverage",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "jest": {

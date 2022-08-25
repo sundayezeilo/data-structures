@@ -43,8 +43,6 @@ class SinglyLinkedList {
     }
     return undefined;
   }
-
-  insert() {}
 }
 
 export { SinglyLinkedList };
