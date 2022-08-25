@@ -1,6 +1,6 @@
 import { SinglyLinkedList } from '../linked-list';
 
-describe('SinglyLinkedList', () => {
+describe('SinglyLinkedList push', () => {
   it('should call push method', () => {
     const list = new SinglyLinkedList();
     jest.spyOn(list, 'push');
@@ -36,6 +36,13 @@ describe('SinglyLinkedList', () => {
 
     expect(list.tail).toMatchObject(tail);
     expect(list.head).toMatchObject({ value: 20, next: tail });
+  });
+});
+
+describe('SinglyLinkesList pop', () => {
+  it('should return undefined when list is empty', () => {
+    const list = new SinglyLinkedList();
+    expect(list.pop()).toBe(undefined);
   });
 
   it('should decrement size by 1', () => {

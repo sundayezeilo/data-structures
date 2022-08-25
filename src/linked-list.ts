@@ -41,7 +41,7 @@ class SinglyLinkedList {
       this.size--;
       return curNode.value;
     }
-    return null;
+    return undefined;
   }
 
   insert() {}

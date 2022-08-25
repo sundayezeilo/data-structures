@@ -27,7 +27,7 @@ class Stack {
 
   pop() {
     if (!this.first) {
-      return null;
+      return undefined;
     }
 
     const value = this.first.value;

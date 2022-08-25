@@ -22,7 +22,7 @@ describe('Stack', () => {
     stack.push('LAST');
     stack.pop();
     stack.pop();
-    expect(stack.pop()).toBe(null);
+    expect(stack.pop()).toBe(undefined);
   });
 
   it('should return the popped value', () => {
