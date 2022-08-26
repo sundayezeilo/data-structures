@@ -1,6 +1,8 @@
 import { ListNode } from './utils';
 
 class Stack {
+  private static MAX_STACK_SIZE = Number.MAX_SAFE_INTEGER;
+
   first: ListNode | null;
   last: ListNode | null;
   size: number;
@@ -12,6 +14,9 @@ class Stack {
   }
 
   push(value: unknown) {
+    if (this.size > Stack.MAX_STACK_SIZE) {
+      throw 'MAX_STACK_SIZE exceeded!';
+    }
     const node = new ListNode(value);
 
     if (!this.first) {
@@ -31,10 +36,12 @@ class Stack {
     }
 
     const value = this.first.value;
-    this.first = this.first.next;
 
-    if (!this.first) {
+    if (this.first === this.last) {
+      this.first = null;
       this.last = null;
+    } else {
+      this.first = this.first.next;
     }
 
     return value;

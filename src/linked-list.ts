@@ -1,26 +1,31 @@
 import { ListNode } from './utils';
 
 class SinglyLinkedList {
+  private static MAX_LIST_LENGTH = Number.MAX_SAFE_INTEGER;
   head: ListNode | null;
   tail: ListNode | null;
-  size: number;
+  length: number;
   constructor() {
     this.head = null;
     this.tail = null;
-    this.size = 0;
+    this.length = 0;
   }
 
   push(value: unknown) {
+    if (this.length > SinglyLinkedList.MAX_LIST_LENGTH) {
+      throw 'MAX_LIST_LENGTH exceeded!';
+    }
     const node = new ListNode(value);
     if (!this.head) {
       this.head = node;
       this.tail = node;
-    } else {
+    } 
+    else {
       this.tail!.next = node;
       this.tail = node;
     }
-    this.size++;
-    return this.size;
+    this.length++;
+    return this.length;
   }
 
   pop() {
@@ -38,10 +43,14 @@ class SinglyLinkedList {
       }
       this.tail = prevNode;
       this.tail.next = null;
-      this.size--;
+      this.length--;
       return curNode.value;
     }
     return undefined;
+  }
+
+  insert(value: unknown, position: number) {
+    
   }
 }
 

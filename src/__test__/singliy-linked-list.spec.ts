@@ -8,13 +8,13 @@ describe('SinglyLinkedList push', () => {
     expect(list.push).toBeCalledTimes(1);
   });
 
-  it('should push a value and return new size', () => {
+  it('should push a value and return new length', () => {
     const list = new SinglyLinkedList();
 
-    const oldSize = list.size;
+    const oldSize = list.length;
     const newSize = list.push(10);
 
-    expect(list.size).toBe(1);
+    expect(list.length).toBe(1);
     expect(newSize).toEqual(oldSize + 1);
   });
 
@@ -45,14 +45,14 @@ describe('SinglyLinkesList pop', () => {
     expect(list.pop()).toBe(undefined);
   });
 
-  it('should decrement size by 1', () => {
+  it('should decrement length by 1', () => {
     const list = new SinglyLinkedList();
     list.push(20);
     list.push(50);
-    expect(list.size).toBe(2);
+    expect(list.length).toBe(2);
 
     list.pop();
-    expect(list.size).toBe(1);
+    expect(list.length).toBe(1);
   });
 
   it('should return the popped value', () => {
@@ -82,4 +82,13 @@ describe('SinglyLinkesList pop', () => {
     list.pop();
     expect(list.head).toEqual(null);
   });
+
+  // describe('SinlgyLinkedList insert', () => {
+  //   it('should insert a vlaue at the given position and return new length', () => {
+  //     const list = new SinglyLinkedList();
+  //     list.insert(5, 3);
+
+  //     expect(list.length).toEqual(1);
+  //   });
+  // });
 });
