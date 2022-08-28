@@ -49,7 +49,7 @@ describe('Queue', () => {
 
     it('should return the correct value by calling dequeue', () => {
       const queue = new Queue();
-      
+
       queue.enqueue('FIRST');
       queue.enqueue('SECOND');
       queue.enqueue('THIRD');
