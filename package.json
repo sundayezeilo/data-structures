@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts 'src/__test__/**/*.ts'",
     "test": "jest --no-cache --coverage",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },

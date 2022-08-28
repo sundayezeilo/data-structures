@@ -1,6 +1,6 @@
 import { ListNode } from './utils';
 
-class Stack {
+class Queue {
   private static MAX_STACK_SIZE = Number.MAX_SAFE_INTEGER;
 
   first: ListNode | null;
@@ -13,39 +13,36 @@ class Stack {
     this.size = 0;
   }
 
-  push(value: unknown) {
-    if (this.size + 1 > Stack.MAX_STACK_SIZE) {
-      throw 'MAX_STACK_SIZE exceeded!';
+  enqueue(value: unknown) {
+    if (this.size + 1 > Queue.MAX_STACK_SIZE) {
+      throw new Error('MAX_QUEUE_SIZE exceeded!');
     }
     const node = new ListNode(value);
-
-    if (!this.first) {
+    if (!this.last) {
       this.first = node;
       this.last = node;
     } else {
-      node.next = this.first;
-      this.first = node;
+      const temp = this.last;
+      this.last = node;
+      temp.next = this.last;
     }
-    this.size++;
-    return this.size;
+
+    return ++this.size;
   }
 
-  pop() {
+  dequeue() {
     if (!this.first) {
       return undefined;
     }
-
     const value = this.first.value;
-
-    if (this.first === this.last) {
-      this.first = null;
+    this.first = this.first.next;
+    this.size--;
+    if (this.size === 0) {
       this.last = null;
-    } else {
-      this.first = this.first.next;
     }
 
     return value;
   }
 }
 
-export { Stack };
+export { Queue };

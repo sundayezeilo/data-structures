@@ -16,12 +16,11 @@ class SinglyLinkedList {
       throw 'MAX_LIST_LENGTH exceeded!';
     }
     const node = new ListNode(value);
-    if (!this.head) {
+    if (!this.tail) {
       this.head = node;
       this.tail = node;
-    } 
-    else {
-      this.tail!.next = node;
+    } else {
+      this.tail.next = node;
       this.tail = node;
     }
     this.length++;
@@ -49,9 +48,7 @@ class SinglyLinkedList {
     return undefined;
   }
 
-  insert(value: unknown, position: number) {
-    
-  }
+  insert(value: unknown, position: number) {}
 }
 
 export { SinglyLinkedList };
