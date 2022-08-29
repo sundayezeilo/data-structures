@@ -42,7 +42,21 @@ class BST<T extends number | string> {
     }
   }
 
-  find(value: T) {}
+  find(value: T) {
+    if (!this.root) return false;
+    let cur = this.root;
+    while (cur) {
+      if (value === cur.value) return true;
+      if (value < cur.value) {
+        if (!cur.left) return false;
+        cur = cur.left;
+      } else {
+        if (!cur.right) return false;
+        cur = cur.right;
+      }
+    }
+    return false;
+  }
 }
 
 export { BST };
