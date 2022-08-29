@@ -1,10 +1,17 @@
-import { ListNode } from './utils';
+class Node {
+  value: unknown;
+  next: Node | null;
 
+  constructor(value: unknown) {
+    this.value = value;
+    this.next = null;
+  }
+}
 class Queue {
   private static MAX_STACK_SIZE = Number.MAX_SAFE_INTEGER;
 
-  first: ListNode | null;
-  last: ListNode | null;
+  first: Node | null;
+  last: Node | null;
   size: number;
 
   constructor() {
@@ -17,7 +24,7 @@ class Queue {
     if (this.size + 1 > Queue.MAX_STACK_SIZE) {
       throw new Error('MAX_QUEUE_SIZE exceeded!');
     }
-    const node = new ListNode(value);
+    const node = new Node(value);
     if (!this.last) {
       this.first = node;
       this.last = node;

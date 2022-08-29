@@ -1,9 +1,16 @@
-import { ListNode } from './utils';
+class Node {
+  value: unknown;
+  next: Node | null;
 
+  constructor(value: unknown) {
+    this.value = value;
+    this.next = null;
+  }
+}
 class SinglyLinkedList {
   private static MAX_LIST_LENGTH = Number.MAX_SAFE_INTEGER;
-  head: ListNode | null;
-  tail: ListNode | null;
+  head: Node | null;
+  tail: Node | null;
   length: number;
   constructor() {
     this.head = null;
@@ -15,7 +22,7 @@ class SinglyLinkedList {
     if (this.length > SinglyLinkedList.MAX_LIST_LENGTH) {
       throw 'MAX_LIST_LENGTH exceeded!';
     }
-    const node = new ListNode(value);
+    const node = new Node(value);
     if (!this.tail) {
       this.head = node;
       this.tail = node;

@@ -1,10 +1,17 @@
-import { ListNode } from './utils';
+class Node {
+  value: unknown;
+  next: Node | null;
 
+  constructor(value: unknown) {
+    this.value = value;
+    this.next = null;
+  }
+}
 class Stack {
   private static MAX_STACK_SIZE = Number.MAX_SAFE_INTEGER;
 
-  first: ListNode | null;
-  last: ListNode | null;
+  first: Node | null;
+  last: Node | null;
   size: number;
 
   constructor() {
@@ -17,7 +24,7 @@ class Stack {
     if (this.size + 1 > Stack.MAX_STACK_SIZE) {
       throw 'MAX_STACK_SIZE exceeded!';
     }
-    const node = new ListNode(value);
+    const node = new Node(value);
 
     if (!this.first) {
       this.first = node;
