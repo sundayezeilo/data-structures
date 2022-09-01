@@ -61,7 +61,7 @@ class BST<T extends number | string> {
   }
 
   BFS() {
-    if (!this.root) return null;
+    if (!this.root) return [];
 
     const queue = new Queue();
     queue.enqueue(this.root);
