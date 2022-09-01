@@ -75,6 +75,22 @@ class BST<T extends number | string> {
     }
     return data;
   }
+
+  DFSPreorder() {
+    if (!this.root) return [];
+
+    const data: T[] = [];
+    function traverse(node: Node<T>) {
+      data.push(node.value);
+
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
 }
 
 export { BST };

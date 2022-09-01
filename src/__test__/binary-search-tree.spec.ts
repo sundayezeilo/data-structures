@@ -76,4 +76,28 @@ describe('BST', () => {
       expect(JSON.stringify(traversed)).toEqual(result);
     });
   });
+
+
+  describe('DFSPreorder', () => {
+    it('should return a list of values from the traversed nodes, in the correct order', () => {
+      //             10
+      //      6              15
+      //  3       8      11       20
+      const tree = new BST<number>();
+
+      expect(tree.DFSPreorder().length).toBe(0);
+
+      tree.insert(10);
+      tree.insert(6);
+      tree.insert(3);
+      tree.insert(8);
+      tree.insert(15);
+      tree.insert(11);
+      tree.insert(20);
+
+      const result = JSON.stringify([10, 6, 3, 8, 15, 11, 20]);
+      const traversed = tree.DFSPreorder();
+      expect(JSON.stringify(traversed)).toEqual(result);
+    });
+  });
 });
