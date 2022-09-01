@@ -60,7 +60,7 @@ describe('BST', () => {
       //      6              15
       //  3       8      11       20
       const tree = new BST<number>();
-      
+
       expect(tree.BFS().length).toBe(0);
 
       tree.insert(10);
