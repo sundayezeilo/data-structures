@@ -77,7 +77,6 @@ describe('BST', () => {
     });
   });
 
-
   describe('DFSPreorder', () => {
     it('should return a list of values from the traversed nodes, in the correct order', () => {
       //             10
@@ -123,7 +122,6 @@ describe('BST', () => {
       expect(JSON.stringify(traversed)).toEqual(result);
     });
   });
-
 
   describe('DFSInOrder', () => {
     it('should return a list of values from the traversed nodes, in the correct order', () => {
