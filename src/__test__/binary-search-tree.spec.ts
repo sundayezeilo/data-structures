@@ -77,7 +77,7 @@ describe('BST', () => {
     });
   });
 
-  describe('DFSPreorder', () => {
+  describe('DFSPreOrder', () => {
     it('should return a list of values from the traversed nodes, in the correct order', () => {
       //             10
       //      6              15
