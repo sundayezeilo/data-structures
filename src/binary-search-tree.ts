@@ -76,7 +76,7 @@ class BST<T extends number | string> {
     return data;
   }
 
-  DFSPreorder() {
+  DFSPreOrder() {
     if (!this.root) return [];
 
     const data: T[] = [];
@@ -92,7 +92,7 @@ class BST<T extends number | string> {
     return data;
   }
 
-  DFSPostorder() {
+  DFSPostOrder() {
     if (!this.root) return [];
 
     const data: T[] = [];
@@ -100,6 +100,21 @@ class BST<T extends number | string> {
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
       data.push(node.value);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
+
+  DFSInOrder() {
+    if (!this.root) return [];
+
+    const data: T[] = [];
+    function traverse(node: Node<T>) {      
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
     }
 
     traverse(this.root);

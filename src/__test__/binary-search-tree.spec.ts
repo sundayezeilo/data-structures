@@ -85,7 +85,7 @@ describe('BST', () => {
       //  3       8      11       20
       const tree = new BST<number>();
 
-      expect(tree.DFSPreorder().length).toBe(0);
+      expect(tree.DFSPreOrder().length).toBe(0);
 
       tree.insert(10);
       tree.insert(6);
@@ -96,19 +96,19 @@ describe('BST', () => {
       tree.insert(20);
 
       const result = JSON.stringify([10, 6, 3, 8, 15, 11, 20]);
-      const traversed = tree.DFSPreorder();
+      const traversed = tree.DFSPreOrder();
       expect(JSON.stringify(traversed)).toEqual(result);
     });
   });
 
-  describe('DFSPreorder', () => {
+  describe('DFSPostOrder', () => {
     it('should return a list of values from the traversed nodes, in the correct order', () => {
       //             10
       //      6              15
       //  3       8      11       20
       const tree = new BST<number>();
 
-      expect(tree.DFSPostorder().length).toBe(0);
+      expect(tree.DFSPostOrder().length).toBe(0);
 
       tree.insert(10);
       tree.insert(6);
@@ -119,7 +119,31 @@ describe('BST', () => {
       tree.insert(20);
 
       const result = JSON.stringify([3, 8, 6, 11, 20, 15, 10]);
-      const traversed = tree.DFSPostorder();
+      const traversed = tree.DFSPostOrder();
+      expect(JSON.stringify(traversed)).toEqual(result);
+    });
+  });
+
+
+  describe('DFSInOrder', () => {
+    it('should return a list of values from the traversed nodes, in the correct order', () => {
+      //             10
+      //      6              15
+      //  3       8      11       20
+      const tree = new BST<number>();
+
+      expect(tree.DFSInOrder().length).toBe(0);
+
+      tree.insert(10);
+      tree.insert(6);
+      tree.insert(3);
+      tree.insert(8);
+      tree.insert(15);
+      tree.insert(11);
+      tree.insert(20);
+
+      const result = JSON.stringify([3, 6, 8, 10, 11, 15, 20]);
+      const traversed = tree.DFSInOrder();
       expect(JSON.stringify(traversed)).toEqual(result);
     });
   });
