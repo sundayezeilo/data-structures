@@ -91,6 +91,21 @@ class BST<T extends number | string> {
 
     return data;
   }
+
+  DFSPostorder() {
+    if (!this.root) return [];
+
+    const data: T[] = [];
+    function traverse(node: Node<T>) {      
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node.value);
+    }
+
+    traverse(this.root);
+
+    return data;
+  }
 }
 
 export { BST };
