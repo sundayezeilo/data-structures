@@ -1,3 +1,5 @@
+import { Queue } from './queue';
+
 class Node<T> {
   value: T;
   left: Node<T> | null;
@@ -11,7 +13,7 @@ class Node<T> {
 
 class BST<T extends number | string> {
   root: Node<T> | null;
-  constructor() {
+  constructor(private key?: keyof T) {
     this.root = null;
   }
 
@@ -56,6 +58,22 @@ class BST<T extends number | string> {
       }
     }
     return false;
+  }
+
+  BFS() {
+    if (!this.root) return null;
+
+    const queue = new Queue();
+    queue.enqueue(this.root);
+    let node;
+    const data = [];
+    while (queue.size) {
+      node = queue.dequeue() as Node<T>;
+      data.push(node.value);
+      if (node.left) queue.enqueue(node.left);
+      if (node.right) queue.enqueue(node.right);
+    }
+    return data;
   }
 }
 
